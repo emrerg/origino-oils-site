@@ -1,0 +1,70 @@
+/* Origino — colour tokens. Values transcribed verbatim from the
+   "Origino Unpacking" Figma file; palette roles named after the
+   Origino Brand Guide (rev3) five-colour system. */
+:root{
+/* ── Greens: the olive family ──────────────────────────────── */
+--green-olive:#006837;        /* rgb(0,104,55)  primary "olive" */
+--green-olive-alt:#006633;    /* rgb(0,102,51)  */
+--green-deep:#00532c;         /* rgb(0,83,44)   accordion header ground */
+--green-forest:#334c2c;       /* rgb(51,76,44)  wordmark ink on light */
+--green-forest-alt:#2f4b29;   /* rgb(47,75,41)  web page ground */
+--green-grass:#29ba00;        /* rgb(41,186,0)  section ground */
+--green-leaf:#1da111;         /* rgb(29,161,17) accordion stack ground */
+--green-mint:#39db78;         /* rgb(57,219,120) */
+--green-sage:#bec296;         /* rgb(190,194,150) */
+--green-moss:#87ac93;         /* rgb(135,172,147) */
+--green-edge:#0a5c1d;         /* rgb(10,92,29)  stroke */
+
+/* ── Signal greens: the interactive / "live" colours ───────── */
+--signal-green:#59e631;       /* rgb(89,230,49)  the workhorse accent */
+--signal-neon:#38ff00;        /* rgb(56,255,0)   lab-data accent */
+--signal-chartreuse:#d4e631;  /* rgb(212,230,49) storage-page accent */
+--signal-leaf:#86ca46;        /* rgb(134,202,70) */
+
+/* ── Lab / quality scale (free acidity + polyphenol charts) ── */
+--scale-best:#2892ef;         /* rgb(40,146,239) */
+--scale-good:#86ca46;         /* rgb(134,202,70) */
+--scale-warn:#fbbf12;         /* rgb(251,191,18) */
+--scale-bad:#ef3e25;          /* rgb(239,62,37)  */
+
+/* ── Ultramarine: the lab-panel ground ─────────────────────── */
+--blue-lab:#0224e2;           /* rgb(2,36,226) */
+--blue-block:#0023eb;         /* rgb(0,35,235) */
+
+/* ── Neutrals ──────────────────────────────────────────────── */
+--ink:#000000;
+--paper:#ffffff;
+--paper-warm:#fffffe;         /* rgb(255,255,254) */
+--paper-off:#fefefe;          /* rgb(254,254,254) */
+--grey-05:#f6f6f6;
+--grey-10:#f5f5f5;            /* rgb(245,245,245) light panel */
+--grey-20:#d2d2d2;
+
+/* ── Alpha ramps used as scrims and muted ink ──────────────── */
+--ink-a50:rgba(0,0,0,0.5);
+--ink-a30:rgba(0,0,0,0.3);
+--ink-a10:rgba(0,0,0,0.1);
+--ink-a63:rgba(0,0,0,0.63);   /* text drop-shadow on photos */
+--paper-a50:rgba(255,255,255,0.5);
+
+/* ── Semantic aliases ─────────────────────────────────────── */
+--surface-dark:var(--ink);            /* full-bleed photo screens */
+--surface-light:var(--paper);
+--surface-panel:var(--grey-10);       /* explainer panels */
+--surface-brand:var(--green-olive);
+--surface-brand-deep:var(--green-deep);
+--surface-lab:var(--blue-lab);
+
+--text-on-dark:var(--paper);
+--text-on-dark-muted:var(--paper-a50);
+--text-on-light:var(--ink);
+--text-accent:var(--signal-green);
+--text-accent-lab:var(--signal-neon);
+--text-accent-storage:var(--signal-chartreuse);
+
+--border-accent:var(--signal-green);
+--border-brand:var(--green-olive);
+
+--scrim-bottom:linear-gradient(0deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* @kind other */
+--scrim-top:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* @kind other */
+}

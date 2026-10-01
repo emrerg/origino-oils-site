@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Origino facility — Yenikoy, Orhangazi, Bursa</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<style>
+:root{--ground:#e5e6d4;--muted:#6b7059;--olive:#006837}
+html,body{margin:0;height:100%;background:var(--ground)}
+a{color:var(--olive)}a:hover{color:#00532c}
+.wrap{position:relative;width:100%;height:100%;min-height:380px;overflow:hidden}
+#map{position:absolute;inset:0;background:var(--ground)}
+.leaflet-tile-pane{filter:grayscale(1) sepia(.35) hue-rotate(35deg) saturate(.55) contrast(.82) brightness(1.08)}
+.veil{position:absolute;inset:0;pointer-events:none;z-index:400;background:radial-gradient(ellipse at center,rgba(229,230,212,0) 45%,rgba(229,230,212,.75) 100%)}
+.leaflet-control-attribution{background:rgba(229,230,212,.85)!important;color:var(--muted)!important;font-size:10px}
+.leaflet-control-attribution a{color:var(--muted)!important}
+.site{position:relative;width:0;height:0}
+.site .dot{position:absolute;left:-8px;top:-8px;width:16px;height:16px;border-radius:50%;background:var(--olive);box-shadow:0 0 0 3px var(--ground)}
+.site .pulse{position:absolute;left:-8px;top:-8px;width:16px;height:16px;border-radius:50%;background:var(--olive);opacity:0;animation:pulse 2.4s cubic-bezier(.2,0,0,1) infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.45}100%{transform:scale(5);opacity:0}}
+.legend{position:absolute;left:16px;top:16px;z-index:500;display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(229,230,212,.92);box-shadow:inset 0 0 0 1px rgba(43,51,34,.22);font:500 11px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.06em;color:#2b3322;pointer-events:none}
+.legend i{width:12px;height:12px;background:rgba(0,104,55,.42);box-shadow:inset 0 0 0 1px #006837}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap"><div id="map" aria-label="Map showing the Origino facility near Yenikoy, Orhangazi, Bursa"></div><div class="veil"></div><div class="legend"><i></i>Olive groves</div></div>
+<script>
+(function(){
+  var SITE=[40.520206,29.343738],NEAR=14,FARB=L.latLngBounds([[41.12,28.85],[40.42,29.5]]),FARC=FARB.getCenter(),FAR=9;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var map=L.map('map',{zoomControl:false,scrollWheelZoom:false,dragging:false,doubleClickZoom:false,touchZoom:false,boxZoom:false,keyboard:false,zoomSnap:0.25}).setView(SITE,9);
+  FAR=map.getBoundsZoom(FARB,false,L.point(40,40));map.setView(FARC,FAR,{animate:false});
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap contributors'}).addTo(map);
+  map.createPane('groves');var gp=map.getPane('groves');gp.style.zIndex=350;gp.style.opacity=.42;
+  var feats=[],GC='#006837',GS='#006837';
+  var Groves=L.GridLayer.extend({createTile:function(c){var t=document.createElement('canvas'),s=this.getTileSize();t.width=s.x;t.height=s.y;var x=t.getContext('2d'),ox=c.x*s.x,oy=c.y*s.y,z=c.z;x.fillStyle=GC;x.strokeStyle=GS;x.lineWidth=.6;
+    var tb=L.bounds([ox,oy],[ox+s.x,oy+s.y]);
+    feats.forEach(function(f){var nw=map.project(f.nw,z),se=map.project(f.se,z);if(!tb.intersects(L.bounds(nw,se)))return;x.beginPath();
+      f.polys.forEach(function(rings){rings.forEach(function(r){r.forEach(function(ll,i){var p=map.project(ll,z);i?x.lineTo(p.x-ox,p.y-oy):x.moveTo(p.x-ox,p.y-oy);});x.closePath();});});
+      x.fill('evenodd');x.stroke();});return t;}});
+  var groves=new Groves({pane:'groves',updateWhenZooming:false,keepBuffer:4}).addTo(map);
+  var q='https://image.discomap.eea.europa.eu/arcgis/rest/services/Corine/CLC2018_WM/MapServer/0/query?'+new URLSearchParams({where:"Code_18='223'",geometry:'28.6,40.1,30.0,40.75',geometryType:'esriGeometryEnvelope',inSR:'4326',spatialRel:'esriSpatialRelIntersects',outFields:'Area_Ha',outSR:'4326',geometryPrecision:'5',maxAllowableOffset:'0.0004',f:'geojson'});
+  fetch(q).then(function(r){return r.json();}).then(function(g){
+    (g.features||[]).forEach(function(f){var gm=f.geometry;if(!gm)return;var P=gm.type==='Polygon'?[gm.coordinates]:gm.type==='MultiPolygon'?gm.coordinates:[];var a=90,b=180,c=-90,d=-180;
+      var polys=P.map(function(p){return p.map(function(r){return r.map(function(q){if(q[1]<a)a=q[1];if(q[1]>c)c=q[1];if(q[0]<b)b=q[0];if(q[0]>d)d=q[0];return L.latLng(q[1],q[0]);});});});
+      feats.push({polys:polys,nw:L.latLng(c,b),se:L.latLng(a,d)});});
+    groves.redraw();
+    map.attributionControl.addAttribution('Olive groves: CORINE Land Cover 2018, EEA / Copernicus');
+  }).catch(function(){});
+  L.marker(SITE,{icon:L.divIcon({className:'',html:'<div class="site"><span class="pulse"></span><span class="dot"></span></div>',iconSize:[0,0]}),interactive:false,keyboard:false}).addTo(map);
+  if(reduce){map.setView(SITE,11);return;}
+  var zin=true,t;
+  function step(){map.flyTo(zin?SITE:FARC,zin?NEAR:FAR,{duration:4,easeLinearity:0.2});zin=!zin;}
+  map.on('moveend',function(){clearTimeout(t);t=setTimeout(step,1800);});
+  var go=function(){t=setTimeout(step,600);};
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){go();o.disconnect();}},{threshold:.35}).observe(document.getElementById('wrap'));}else go();
+})();
+</script>
+</body>
+</html>

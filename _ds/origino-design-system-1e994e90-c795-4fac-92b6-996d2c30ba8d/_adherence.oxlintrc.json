@@ -1,0 +1,444 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/journey/**",
+              "ui_kits/unpacking/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Neue Haas Grotesk Display Pro|IBM Plex Mono))/i]",
+        "message": "Font not provided by the design system. Available: Neue Haas Grotesk Display Pro, IBM Plex Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Component3'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|name|state|text1|text2|text3|text4|icon1|icon2|icon3|key|ref|className|style|children)$/]",
+        "message": "<Component3> doesn't accept that prop. Declared props: className, style, name, state, text1, text2, text3, text4, icon1, icon2, icon3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Component3'] > JSXAttribute[name.name='name'] > Literal[value!=/^(?:pressed|packed|free acidity|polyphenols|picked)$/]",
+        "message": "<Component3> name must be one of 'pressed' | 'packed' | 'free acidity' | 'polyphenols' | 'picked'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Component3'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:close|open)$/]",
+        "message": "<Component3> state must be one of 'close' | 'open'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney3'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney3> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney4'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney4> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney5'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney5> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney6'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney6> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney7'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney7> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OriginoJourney8'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<OriginoJourney8> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Rectangle613'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|key|ref|className|style|children)$/]",
+        "message": "<Rectangle613> doesn't accept that prop. Declared props: className, style, property1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Rectangle613'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:default|variant2)$/]",
+        "message": "<Rectangle613> property1 must be one of 'default' | 'variant2'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RemixIconsLineSystemArrow'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<RemixIconsLineSystemArrow> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RemixIconsLineSystemArrow2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<RemixIconsLineSystemArrow2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RemixIconsLineSystemArrow3'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<RemixIconsLineSystemArrow3> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RemixIconsLineSystemClose'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<RemixIconsLineSystemClose> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Storage'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<Storage> doesn't accept that prop. Declared props: className, style."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Component3": {
+        "replaces": []
+      },
+      "OriginoJourney": {
+        "replaces": []
+      },
+      "OriginoJourney2": {
+        "replaces": []
+      },
+      "OriginoJourney3": {
+        "replaces": []
+      },
+      "OriginoJourney4": {
+        "replaces": []
+      },
+      "OriginoJourney5": {
+        "replaces": []
+      },
+      "OriginoJourney6": {
+        "replaces": []
+      },
+      "OriginoJourney7": {
+        "replaces": []
+      },
+      "OriginoJourney8": {
+        "replaces": []
+      },
+      "Rectangle613": {
+        "replaces": []
+      },
+      "RemixIconsLineSystemArrow": {
+        "replaces": []
+      },
+      "RemixIconsLineSystemArrow2": {
+        "replaces": []
+      },
+      "RemixIconsLineSystemArrow3": {
+        "replaces": []
+      },
+      "RemixIconsLineSystemClose": {
+        "replaces": []
+      },
+      "Storage": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--action-h",
+      "--bar-4",
+      "--blue-block",
+      "--blue-lab",
+      "--blur-glass",
+      "--border-accent",
+      "--border-brand",
+      "--border-hairline",
+      "--card-w",
+      "--content-w",
+      "--cta-h",
+      "--dur-accordion",
+      "--dur-fade",
+      "--ease-standard",
+      "--font-core",
+      "--font-logotype",
+      "--font-mono",
+      "--green-deep",
+      "--green-edge",
+      "--green-forest",
+      "--green-forest-alt",
+      "--green-grass",
+      "--green-leaf",
+      "--green-mint",
+      "--green-moss",
+      "--green-olive",
+      "--green-olive-alt",
+      "--green-sage",
+      "--grey-05",
+      "--grey-10",
+      "--grey-20",
+      "--icon-24",
+      "--icon-32",
+      "--icon-40",
+      "--icon-60",
+      "--ink",
+      "--ink-a10",
+      "--ink-a30",
+      "--ink-a50",
+      "--ink-a63",
+      "--lh-action",
+      "--lh-body",
+      "--lh-caption",
+      "--lh-cover",
+      "--lh-display",
+      "--lh-headline",
+      "--lh-hero",
+      "--lh-label",
+      "--lh-micro",
+      "--lh-stat",
+      "--lh-subtitle",
+      "--lh-title",
+      "--ls-action",
+      "--ls-cover",
+      "--ls-display",
+      "--ls-hero",
+      "--ls-stat",
+      "--media-h",
+      "--paper",
+      "--paper-a50",
+      "--paper-off",
+      "--paper-warm",
+      "--radius-card",
+      "--radius-indicator",
+      "--radius-none",
+      "--radius-pill",
+      "--radius-screen",
+      "--radius-sheet",
+      "--row-h",
+      "--rule-2",
+      "--scale-bad",
+      "--scale-best",
+      "--scale-good",
+      "--scale-warn",
+      "--screen-gutter",
+      "--screen-gutter-wide",
+      "--screen-w",
+      "--scrim-bottom",
+      "--scrim-top",
+      "--shadow-photo-text",
+      "--signal-chartreuse",
+      "--signal-green",
+      "--signal-leaf",
+      "--signal-neon",
+      "--size-action",
+      "--size-body",
+      "--size-caption",
+      "--size-cover",
+      "--size-display",
+      "--size-headline",
+      "--size-hero",
+      "--size-label",
+      "--size-micro",
+      "--size-stat",
+      "--size-subtitle",
+      "--size-title",
+      "--space-1",
+      "--space-10",
+      "--space-12",
+      "--space-16",
+      "--space-20",
+      "--space-30",
+      "--space-60",
+      "--space-8",
+      "--space-90",
+      "--surface-brand",
+      "--surface-brand-deep",
+      "--surface-dark",
+      "--surface-lab",
+      "--surface-light",
+      "--surface-panel",
+      "--text-accent",
+      "--text-accent-lab",
+      "--text-accent-storage",
+      "--text-action",
+      "--text-body",
+      "--text-body-strong",
+      "--text-caption",
+      "--text-display",
+      "--text-headline",
+      "--text-hero",
+      "--text-label",
+      "--text-on-dark",
+      "--text-on-dark-muted",
+      "--text-on-light",
+      "--text-stat",
+      "--text-subtitle",
+      "--text-title",
+      "--weight-bold",
+      "--weight-medium",
+      "--weight-roman"
+    ],
+    "tokenKinds": {
+      "--green-olive": "color",
+      "--green-olive-alt": "color",
+      "--green-deep": "color",
+      "--green-forest": "color",
+      "--green-forest-alt": "color",
+      "--green-grass": "color",
+      "--green-leaf": "color",
+      "--green-mint": "color",
+      "--green-sage": "color",
+      "--green-moss": "color",
+      "--green-edge": "color",
+      "--signal-green": "color",
+      "--signal-neon": "color",
+      "--signal-chartreuse": "color",
+      "--signal-leaf": "color",
+      "--scale-best": "color",
+      "--scale-good": "color",
+      "--scale-warn": "color",
+      "--scale-bad": "color",
+      "--blue-lab": "color",
+      "--blue-block": "color",
+      "--ink": "color",
+      "--paper": "color",
+      "--paper-warm": "color",
+      "--paper-off": "color",
+      "--grey-05": "color",
+      "--grey-10": "color",
+      "--grey-20": "color",
+      "--ink-a50": "color",
+      "--ink-a30": "color",
+      "--ink-a10": "color",
+      "--ink-a63": "color",
+      "--paper-a50": "color",
+      "--surface-dark": "color",
+      "--surface-light": "color",
+      "--surface-panel": "color",
+      "--surface-brand": "color",
+      "--surface-brand-deep": "color",
+      "--surface-lab": "color",
+      "--text-on-dark": "font",
+      "--text-on-dark-muted": "font",
+      "--text-on-light": "font",
+      "--text-accent": "font",
+      "--text-accent-lab": "font",
+      "--text-accent-storage": "font",
+      "--border-accent": "color",
+      "--border-brand": "color",
+      "--scrim-bottom": "other",
+      "--scrim-top": "other",
+      "--font-core": "font",
+      "--font-logotype": "font",
+      "--font-mono": "font",
+      "--weight-roman": "font",
+      "--weight-medium": "font",
+      "--weight-bold": "font",
+      "--size-hero": "spacing",
+      "--lh-hero": "spacing",
+      "--ls-hero": "spacing",
+      "--size-cover": "spacing",
+      "--lh-cover": "spacing",
+      "--ls-cover": "spacing",
+      "--size-display": "spacing",
+      "--lh-display": "spacing",
+      "--ls-display": "spacing",
+      "--size-headline": "spacing",
+      "--lh-headline": "spacing",
+      "--size-title": "spacing",
+      "--lh-title": "spacing",
+      "--size-subtitle": "spacing",
+      "--lh-subtitle": "spacing",
+      "--size-stat": "spacing",
+      "--lh-stat": "spacing",
+      "--ls-stat": "spacing",
+      "--size-body": "spacing",
+      "--lh-body": "spacing",
+      "--size-action": "spacing",
+      "--lh-action": "spacing",
+      "--ls-action": "spacing",
+      "--size-label": "spacing",
+      "--lh-label": "spacing",
+      "--size-caption": "spacing",
+      "--lh-caption": "spacing",
+      "--size-micro": "spacing",
+      "--lh-micro": "spacing",
+      "--text-hero": "font",
+      "--text-display": "font",
+      "--text-headline": "font",
+      "--text-title": "font",
+      "--text-subtitle": "font",
+      "--text-stat": "font",
+      "--text-body": "font",
+      "--text-body-strong": "font",
+      "--text-action": "font",
+      "--text-label": "font",
+      "--text-caption": "font",
+      "--screen-w": "spacing",
+      "--screen-gutter": "spacing",
+      "--screen-gutter-wide": "spacing",
+      "--card-w": "spacing",
+      "--content-w": "spacing",
+      "--space-1": "spacing",
+      "--space-8": "spacing",
+      "--space-10": "spacing",
+      "--space-12": "spacing",
+      "--space-16": "spacing",
+      "--space-20": "spacing",
+      "--space-30": "spacing",
+      "--space-60": "spacing",
+      "--space-90": "spacing",
+      "--row-h": "spacing",
+      "--action-h": "spacing",
+      "--media-h": "spacing",
+      "--cta-h": "spacing",
+      "--icon-32": "spacing",
+      "--icon-40": "spacing",
+      "--icon-24": "spacing",
+      "--icon-60": "spacing",
+      "--radius-screen": "radius",
+      "--radius-card": "radius",
+      "--radius-sheet": "radius",
+      "--radius-pill": "radius",
+      "--radius-indicator": "radius",
+      "--radius-none": "radius",
+      "--border-hairline": "spacing",
+      "--rule-2": "spacing",
+      "--bar-4": "spacing",
+      "--shadow-photo-text": "shadow",
+      "--blur-glass": "other",
+      "--ease-standard": "other",
+      "--dur-accordion": "other",
+      "--dur-fade": "other"
+    },
+    "fontFamilies": [
+      "IBM Plex Mono",
+      "Neue Haas Grotesk Display Pro"
+    ]
+  }
+}

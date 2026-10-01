@@ -1,0 +1,5 @@
+/* Origino — minimal element defaults. Deliberately small: the
+   product's screens position everything explicitly. */
+body{margin:0;font:var(--text-body);color:var(--text-on-light);background:var(--surface-light);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:var(--green-olive);text-decoration:none;border-bottom:var(--border-hairline) solid currentColor}
+a:hover{color:var(--signal-green)}

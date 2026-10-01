@@ -1,0 +1,51 @@
+/* Origino — spacing, geometry, elevation and motion tokens.
+   Every value below appears in the source file; nothing is snapped
+   to a 4/8px grid. */
+:root{
+/* Screen frame (the Unpacking app is designed at 393px wide) */
+--screen-w:393px;
+--screen-gutter:20px;        /* outer margin on dark/full-bleed screens */
+--screen-gutter-wide:40px;   /* outer margin on the white cover screen */
+--card-w:353px;              /* 393 − 2×20 */
+--content-w:313px;           /* 353 − 2×20 */
+
+/* Stack rhythm */
+--space-1:1px;    /* hairline gap between stacked accordion rows */
+--space-8:8px;
+--space-10:10px;
+--space-12:12px;
+--space-16:16px;
+--space-20:20px;
+--space-30:30px;
+--space-60:60px;
+--space-90:90px;
+
+/* Fixed block heights carried by the design */
+--row-h:90px;       /* collapsed accordion row */
+--action-h:64px;    /* "See the …" action strip */
+--media-h:393px;    /* inline photo / explainer block */
+--cta-h:65px;       /* pill button */
+--icon-32:32px; --icon-40:40px; --icon-24:24px; --icon-60:60px;
+
+/* Geometry */
+--radius-screen:12px;   /* device frame */
+--radius-card:8px;      /* top corners of the white cover sheet */
+--radius-sheet:32px;    /* bottom corners of the masked photo sheet */
+--radius-pill:40px;     /* CTA buttons */
+--radius-indicator:100px;
+--radius-none:0px;      /* accordion rows, panels and swatches are square */
+
+--border-hairline:1px;
+--rule-2:2px;           /* chart gridlines */
+--bar-4:4px;            /* chart colour bars */
+
+/* Elevation — the file uses shadow only on type over photography */
+--shadow-photo-text:0px 4px 4px 0px rgba(0,0,0,0.63);
+--blur-glass:blur(4px); /* @kind other */
+
+/* Motion — no motion is specified in the source; these are the
+   conventions to use so screens feel consistent. */
+--ease-standard:cubic-bezier(0.2,0,0,1); /* @kind other */
+--dur-accordion:280ms; /* @kind other */
+--dur-fade:180ms; /* @kind other */
+}

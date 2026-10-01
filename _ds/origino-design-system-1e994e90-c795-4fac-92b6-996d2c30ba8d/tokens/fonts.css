@@ -1,0 +1,35 @@
+/* Origino — webfonts.
+
+   Neue Haas Grotesk Display Pro is self-hosted from the uploaded .ttf
+   files in fonts/. The weight ladder is mapped so that the numeric
+   weights already baked into the materialised components resolve to
+   the faces the designer used: 55 Roman → 500, 65 Medium → 600,
+   75 Bold → 700. The lighter cuts take the slots below.
+
+     100 XXThin · 200 XThin · 300 Thin · 400 Light
+     500 Roman  · 600 Medium · 700 Bold · 900 Black
+
+   IBM Plex Mono is one of the Brand Guide's two specified brand faces
+   and is openly licensed, so it stays on the Google Fonts CDN.
+   Matcha (the logotype face) is licensed and was not supplied — its
+   token keeps the real family name and falls back to a serif stack.
+   See readme.md → Font status. */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap");
+
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayXXThin.ttf") format("truetype");font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayXXThinItalic.ttf") format("truetype");font-weight:100;font-style:italic;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayXThin.ttf") format("truetype");font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayXThinItalic.ttf") format("truetype");font-weight:200;font-style:italic;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayThin.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayThinItalic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayLight.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayLightItalic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayRoman.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayRomanItalic.ttf") format("truetype");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayMediu.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayMediumItalic.ttf") format("truetype");font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayBold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayBoldItalic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayBlack.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("../fonts/NeueHaasDisplayBlackItalic.ttf") format("truetype");font-weight:900;font-style:italic;font-display:swap}

@@ -1,0 +1,47 @@
+/* Origino — type tokens.
+   The product UI is set entirely in Neue Haas Grotesk Display Pro
+   (weights 55 Roman / 65 Medium / 75 Bold). The Brand Guide adds
+   Matcha (serif logotype) and IBM Plex Mono (brand body text). Only
+   IBM Plex Mono ships with real webfont files — the other two keep
+   their true family name and fall back until licensed binaries are
+   uploaded.
+
+   The guide also floats Kepler and Quasimodo as digital-media
+   alternatives. Nothing in this system uses them, so they get no
+   token; see readme.md → Font status if that decision is revisited. */
+:root{
+--font-core:"Neue Haas Grotesk Display Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+--font-logotype:"Matcha",Didot,"Times New Roman",serif;
+--font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+--weight-roman:500;   /* 55 Roman  */
+--weight-medium:600;  /* 65 Medium */
+--weight-bold:700;    /* 75 Bold   */
+
+/* Sizes are the literal values used in the file — no rounding. */
+--size-hero:100px;      --lh-hero:80px;      --ls-hero:-0.02em;
+--size-cover:82.481px;  --lh-cover:82.481px; --ls-cover:-0.02em;
+--size-display:48px;    --lh-display:64px;   --ls-display:-0.02em;
+--size-headline:44.25px;--lh-headline:44.25px;
+--size-title:40px;      --lh-title:40px;
+--size-subtitle:32px;   --lh-subtitle:32px;
+--size-stat:24px;       --lh-stat:24px;      --ls-stat:-0.01em;
+--size-body:20px;       --lh-body:24px;
+--size-action:18px;     --lh-action:24px;    --ls-action:-0.01em;
+--size-label:16px;      --lh-label:24px;
+--size-caption:14px;    --lh-caption:28px;
+--size-micro:14px;      --lh-micro:16px;
+
+/* Semantic aliases */
+--text-hero:var(--weight-medium) var(--size-hero)/var(--lh-hero) var(--font-core);
+--text-display:var(--weight-medium) var(--size-display)/var(--lh-display) var(--font-core);
+--text-headline:var(--weight-bold) var(--size-headline)/var(--lh-headline) var(--font-core);
+--text-title:var(--weight-medium) var(--size-title)/var(--lh-title) var(--font-core);
+--text-subtitle:var(--weight-medium) var(--size-subtitle)/var(--lh-subtitle) var(--font-core);
+--text-stat:var(--weight-bold) var(--size-stat)/var(--lh-stat) var(--font-core);
+--text-body:var(--weight-roman) var(--size-body)/var(--lh-body) var(--font-core);
+--text-body-strong:var(--weight-medium) var(--size-body)/var(--lh-body) var(--font-core);
+--text-action:var(--weight-medium) var(--size-action)/var(--lh-action) var(--font-core);
+--text-label:var(--weight-medium) var(--size-label)/var(--lh-label) var(--font-core);
+--text-caption:var(--weight-roman) var(--size-caption)/var(--lh-caption) var(--font-core);
+}
