@@ -27,9 +27,9 @@
     e.preventDefault();
     btn.disabled=true;btn.textContent='Sending…';status.hidden=true;
     fetch(form.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
-      .then(function(r){return r.json().then(function(d){if(!r.ok||String(d.success)!=='true')throw new Error(d.message||'Send failed');});})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(d){if(!r.ok||String(d.success)!=='true'){var err=new Error(d.message||('HTTP '+r.status));err.server=d.message;throw err;}});})
       .then(function(){form.reset();show('Thank you — your message has reached us. We\'ll follow up within one business day.');})
-      .catch(function(){show('Sorry, your message could not be sent. Please email info@originooils.com or WhatsApp us instead.',true);})
+      .catch(function(err){console.error('Contact form error:',err);show((err.server?err.server+' ':'')+'If this persists, please email info@originooils.com or WhatsApp us.',true);})
       .then(function(){btn.disabled=false;btn.textContent='Send message';});
   });
 })();
